@@ -12,15 +12,17 @@ def main():
     while is_finished == False:
         if turn == "X":
             board[user_move()-1] = "X"
+            turn = "0"
         else:
             board[user_move()-1] = "O"
+            turn = "X"
+        print(board[0:3], board[0:3][::-1], board[0:3]==board[0:3][::-1])
         print_board(board)
-        print(board[3:0])
-        if board[0:3]==board[0:3].reverse():
+        if board[0:3]==board[0:3][::-1]:
             is_finished == True
-        elif board[3:6]==board[3:6].reverse():
+        elif board[3:6]==board[3:6][::-1]:
             is_finished == True
-        elif board[6:9]==board[6:9].reverse():
+        elif board[6:9]==board[6:9][::-1]:
             is_finished == True
         elif board[0]==board[3]==board[6]:
             is_finished == True
@@ -34,6 +36,7 @@ def main():
             is_finished == True
         else:
             next
+    print("You Won!")
             
 
 def print_board(board):
